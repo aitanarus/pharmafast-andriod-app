@@ -8,9 +8,9 @@
 ## MoSCoW Requirements
 
 *Must Have*
-- [ ] Users login
-- [ ] Users see available products
-- [ ] Users have a shopping cart
+- [ ] Users must login
+- [ ] Users must see available products
+- [ ] Users must have a shopping cart
 
 *Should Have*
 - [ ] Users should edit their profile
