@@ -1,13 +1,14 @@
 # PharmaFast
-💊 PharmaFast is a delivery application for medication and health related products
+💊 PharmaFast is a delivery application for medication and health related products.
 
 ## Description
+
 
 
 ## MoSCoW Requirements
 
 *Must Have*
-- [X] Users login
+- [ ] Users login
 - [ ] Users see available products
 - [ ] Users have a shopping cart
 
@@ -17,6 +18,7 @@
 - [ ] Users should filter products
 
 *Could Have*
+- [ ] Users could save their favourite products
 - [ ] Users could set recurrent purchases
 
 *Won't Have*
