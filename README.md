@@ -22,5 +22,5 @@
 - [ ] Users could set recurrent purchases
 
 *Won't Have*
-- Users won't be able to do payments
+- Users won't be able to do real payments
 
