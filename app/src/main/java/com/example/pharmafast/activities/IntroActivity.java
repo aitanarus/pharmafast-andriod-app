@@ -1,10 +1,12 @@
-package com.example.pharmafast;
+package com.example.pharmafast.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.pharmafast.R;
 
 public class IntroActivity extends AppCompatActivity {
 private AppCompatButton startBtn;
