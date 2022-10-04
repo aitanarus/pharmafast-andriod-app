@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PharmaFast</string>
+    <string name="get_started">Get Started</string>
+    <string name="favorite">favorite</string>
+    <string name="content_description_favorite">content description favorite</string>
+    <string name="search">search</string>
+    <string name="content_description_search">content description search</string>
+    <string name="more">more</string>
+    <string name="content_description_more">content description more</string>
+    <string name="settings">Settings</string>
+
 </resources>
