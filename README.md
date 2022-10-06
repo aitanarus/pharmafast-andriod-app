@@ -9,7 +9,7 @@
 
 *Must Have*
 - [ ] Users must login
-- [ ] Users must see available products
+- [ ] Users must see available products by categories
 - [ ] Users must have a shopping cart
 
 *Should Have*
