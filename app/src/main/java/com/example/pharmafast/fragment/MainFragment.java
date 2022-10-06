@@ -14,13 +14,13 @@ import com.example.pharmafast.domain.Category;
 import com.example.pharmafast.domain.Product;
 import java.util.ArrayList;
 
-public class FragmentMain extends Fragment {
+public class MainFragment extends Fragment {
     private RecyclerView categoryList;
     private CategoryAdapter categoryAdapter;
     private RecyclerView productList;
     private ProductAdapter productAdapter;
 
-    public FragmentMain() {
+    public MainFragment() {
         // Required empty public constructor
     }
 
@@ -35,7 +35,6 @@ public class FragmentMain extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         categoryList = view.findViewById(R.id.categoryRecyclerview);
         productList= view.findViewById(R.id.productsByCategoryRecyclerView);
-
         recyclerViewCategoryList();
         recyclerViewProductList();
         return view;

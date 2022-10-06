@@ -11,7 +11,7 @@
         android:id="@+id/fragment_container_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.pharmafast.fragment.FragmentMain"/>
+        android:name="com.example.pharmafast.fragment.MainFragment"/>
 
     <include
         layout="@layout/bottom_nav_bar" />

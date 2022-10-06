@@ -1,16 +1,20 @@
 package com.example.pharmafast.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pharmafast.R;
 import com.example.pharmafast.domain.Product;
+import com.example.pharmafast.fragment.ProductDetailFragment;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -33,6 +37,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         Glide.with(holder.itemView.getContext())
                 .load(products.get(position).getPic())
                 .into(holder.productPic);
+
+        onClickProductItem(holder);
+    }
+
+    //click on product item
+    private void onClickProductItem(ProductAdapter.ViewHolder holder) {
+        Context context = holder.itemView.getContext();
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProductDetailFragment productDetailFragment = new ProductDetailFragment();
+                FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .addToBackStack(null)
+                        .replace(R.id.fragment_container_main, productDetailFragment).commit();
+            }
+        });
     }
 
     @Override
@@ -45,7 +66,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         TextView productTitle;
         ImageView productPic;
         TextView productPrice;
-        ConstraintLayout productLayout;
+        MaterialCardView productLayout;
 
         ViewHolder(View itemView){
             super(itemView);

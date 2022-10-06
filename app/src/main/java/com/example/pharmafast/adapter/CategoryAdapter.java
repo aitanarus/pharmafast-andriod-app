@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pharmafast.R;
 import com.example.pharmafast.domain.Category;
-import com.example.pharmafast.fragment.FragmentProduct;
+import com.example.pharmafast.fragment.ProductFragment;
 import com.google.android.material.card.MaterialCardView;
 import java.util.ArrayList;
 
@@ -38,22 +38,22 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         Glide.with(holder.itemView.getContext())
                 .load(categories.get(position).getPic())
                 .into(holder.categoryPic);
-        onClickCategoryItem(holder, position);
+        onClickCategoryItem(holder);
     }
 
     //click on category item
-    private void onClickCategoryItem(ViewHolder holder, int position) {
+    private void onClickCategoryItem(ViewHolder holder) {
         Bundle bundle=new Bundle();
         Context context = holder.itemView.getContext();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentProduct fragmentProduct = new FragmentProduct();
+                ProductFragment productFragment = new ProductFragment();
                 FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_main, fragmentProduct).commit();
+                        .replace(R.id.fragment_container_main, productFragment).commit();
                 bundle.putString("CATEGORY NAME", (String) holder.categoryTitle.getText());
-                fragmentProduct.setArguments(bundle);
+                productFragment.setArguments(bundle);
             }
         });
     }
