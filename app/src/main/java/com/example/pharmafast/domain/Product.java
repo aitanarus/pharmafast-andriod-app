@@ -1,6 +1,7 @@
 package com.example.pharmafast.domain;
 
 public class Product {
+    private int productId;
     private String title;
     private String pic;
     private String description;
@@ -8,7 +9,8 @@ public class Product {
     private String categoryTitle;
     private int numberInCart;
 
-    public Product(String title, String pic, String description, Double price, String categoryTitle) {
+    public Product(int productId, String title, String pic, String description, Double price, String categoryTitle) {
+        this.productId = productId;
         this.title = title;
         this.pic = pic;
         this.description = description;
@@ -23,6 +25,14 @@ public class Product {
         this.price = price;
         this.categoryTitle = categoryTitle;
         this.numberInCart = numberInCart;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getTitle() {

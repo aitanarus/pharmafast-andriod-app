@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PharmaFast">
-        <activity android:name=".activities.MainActivity"></activity>
-        <activity android:name=".activities.IntroActivity">
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -1,12 +1,22 @@
 package com.example.pharmafast.domain;
 
 public class Category {
+    private int categoryId;
     private String title;
     private String pic;
 
-    public Category(String title, String pic) {
+    public Category(int categoryId, String title, String pic) {
+        this.categoryId = categoryId;
         this.title = title;
         this.pic = pic;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getTitle() {

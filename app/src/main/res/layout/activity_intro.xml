@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.IntroActivity">
+    tools:context=".activity.IntroActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -18,25 +18,33 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background_intro" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/startBtn"
-        android:layout_width="132dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_custom"
-        android:text="@string/get_started"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="402dp" />
+        tools:ignore="MissingConstraints" >
+
+        <RelativeLayout
+            android:id="@+id/loadingPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:layout_editor_absoluteX="-5dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <ProgressBar
+                android:layout_width="96dp"
+                android:layout_height="97dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="158dp"
+                android:layout_marginTop="382dp"
+                android:layout_marginEnd="157dp"
+                android:layout_marginBottom="0dp"
+                android:indeterminate="true" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
