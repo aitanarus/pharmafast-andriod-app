@@ -1,6 +1,7 @@
 package com.example.pharmafast.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,13 +43,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     //click on category item
     private void onClickCategoryItem(ViewHolder holder, int position) {
+        Bundle bundle=new Bundle();
         Context context = holder.itemView.getContext();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentProduct fragmentProduct = new FragmentProduct();
                 FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_main, new FragmentProduct()).commit();
+                        .replace(R.id.fragment_container_main, fragmentProduct).commit();
+                bundle.putString("CATEGORY NAME", (String) holder.categoryTitle.getText());
+                fragmentProduct.setArguments(bundle);
             }
         });
     }

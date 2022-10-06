@@ -65,6 +65,18 @@
         app:layout_constraintTop_toTopOf="@+id/textView9"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="28dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:tint="@color/grey_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/productPrice"
+        app:layout_constraintStart_toEndOf="@+id/productPrice"
+        app:layout_constraintTop_toTopOf="@+id/productPrice"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_favorite_border_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

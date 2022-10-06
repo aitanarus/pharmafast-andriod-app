@@ -24,13 +24,6 @@ public class FragmentMain extends Fragment {
         // Required empty public constructor
     }
 
-    public static FragmentMain newInstance() {
-        FragmentMain fragment = new FragmentMain();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
