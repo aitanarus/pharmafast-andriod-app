@@ -10,7 +10,8 @@
 *Must Have*
 - [ ] Users must login
 - [ ] Users must see available products by categories
-- [ ] Users must have a shopping cart
+- [ ] Users must see product details
+- [ ] Users must add product to a shopping cart
 
 *Should Have*
 - [ ] Users should edit their profile
