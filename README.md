@@ -14,7 +14,6 @@
 - [ ] Users must add product to a shopping cart
 
 *Should Have*
-- [ ] Users should edit their profile
 - [ ] Users  should see past purchases
 - [ ] Users should filter products
 
