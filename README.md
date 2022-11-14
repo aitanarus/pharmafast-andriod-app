@@ -8,7 +8,7 @@
 ## MoSCoW Requirements
 
 *Must Have*
-- [ X ] Users must login
+- [X] Users must login
 - [ ] Users must see available products by categories
 - [ ] Users must see product details
 - [ ] Users must add product to a shopping cart
