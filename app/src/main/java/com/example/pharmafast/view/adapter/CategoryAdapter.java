@@ -7,21 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.pharmafast.R;
 import com.example.pharmafast.model.Category;
 import com.example.pharmafast.view.fragment.ProductFragment;
 import com.google.android.material.card.MaterialCardView;
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
-    private ArrayList<Category> categories;
+    private List<Category> categories;
 
-    public CategoryAdapter(ArrayList<Category> categories) {
+    public CategoryAdapter(List<Category> categories) {
         this.categories = categories;
     }
 

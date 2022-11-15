@@ -7,22 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.pharmafast.R;
 import com.example.pharmafast.model.Product;
 import com.example.pharmafast.view.fragment.ProductDetailFragment;
 import com.google.android.material.card.MaterialCardView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>  {
-    private ArrayList<Product> products;
+    private List<Product> products;
 
-    public ProductAdapter(ArrayList<Product> products) { this.products = products;}
+    public ProductAdapter(List<Product> products) { this.products = products;}
 
     @NonNull
     @Override

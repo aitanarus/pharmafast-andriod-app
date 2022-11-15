@@ -10,6 +10,8 @@ public class Product {
     private int quantity;
     private int numberInCart;
 
+    public Product(){}
+
     public Product(int productId, String title, String pic, String description, Double price, String categoryTitle, int quantity) {
         this.productId = productId;
         this.title = title;

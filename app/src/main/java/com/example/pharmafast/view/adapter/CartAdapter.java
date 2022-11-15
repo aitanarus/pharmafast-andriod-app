@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pharmafast.R;
 import com.example.pharmafast.model.Product;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
-    private ArrayList<Product> products;
+    private List<Product> products;
 
-    public CartAdapter(ArrayList<Product> products) {
+    public CartAdapter(List<Product> products) {
         this.products = products;
     }
 
