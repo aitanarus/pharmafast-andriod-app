@@ -1,6 +1,7 @@
-package com.example.pharmafast.adapter;
+package com.example.pharmafast.view.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pharmafast.R;
-import com.example.pharmafast.domain.Product;
-import com.example.pharmafast.fragment.ProductDetailFragment;
+import com.example.pharmafast.model.Product;
+import com.example.pharmafast.view.fragment.ProductDetailFragment;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     //click on product item
     private void onClickProductItem(ProductAdapter.ViewHolder holder) {
+        Bundle bundle = new Bundle();
         Context context = holder.itemView.getContext();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 fragmentManager.beginTransaction()
                         .addToBackStack(null)
                         .replace(R.id.fragment_container_main, productDetailFragment).commit();
+                bundle.putString("PRODUCT NAME", (String) holder.productTitle.getText()); //CHANGE TO ID?
+                productDetailFragment.setArguments(bundle);
             }
         });
     }

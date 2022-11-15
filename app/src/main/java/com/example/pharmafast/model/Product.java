@@ -1,4 +1,4 @@
-package com.example.pharmafast.domain;
+package com.example.pharmafast.model;
 
 public class Product {
     private int productId;
@@ -7,23 +7,26 @@ public class Product {
     private String description;
     private Double price;
     private String categoryTitle;
+    private int quantity;
     private int numberInCart;
 
-    public Product(int productId, String title, String pic, String description, Double price, String categoryTitle) {
+    public Product(int productId, String title, String pic, String description, Double price, String categoryTitle, int quantity) {
         this.productId = productId;
         this.title = title;
         this.pic = pic;
         this.description = description;
         this.price = price;
         this.categoryTitle = categoryTitle;
+        this.quantity=quantity;
     }
 
-    public Product(String title, String pic, String description, Double price, String categoryTitle, int numberInCart) {
+    public Product(String title, String pic, String description, Double price, String categoryTitle, int quantity, int numberInCart) {
         this.title = title;
         this.pic = pic;
         this.description = description;
         this.price = price;
         this.categoryTitle = categoryTitle;
+        this.quantity=quantity;
         this.numberInCart = numberInCart;
     }
 
@@ -69,6 +72,14 @@ public class Product {
 
     public String getCategoryTitle() {
         return categoryTitle;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public void setCategoryTitle(String categoryTitle) {

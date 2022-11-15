@@ -1,4 +1,4 @@
-package com.example.pharmafast.adapter;
+package com.example.pharmafast.view.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pharmafast.R;
-import com.example.pharmafast.domain.Category;
-import com.example.pharmafast.fragment.ProductFragment;
+import com.example.pharmafast.model.Category;
+import com.example.pharmafast.view.fragment.ProductFragment;
 import com.google.android.material.card.MaterialCardView;
 import java.util.ArrayList;
 

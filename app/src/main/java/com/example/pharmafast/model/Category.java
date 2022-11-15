@@ -1,4 +1,4 @@
-package com.example.pharmafast.domain;
+package com.example.pharmafast.model;
 
 public class Category {
     private int categoryId;
