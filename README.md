@@ -17,7 +17,7 @@
 *Should Have*
 - [ ] Users should edit their profile information
 - [ ] Users  should see past purchases
-- [ ] Users should filter products
+- [ ] Users should filter products by price
 
 *Could Have*
 - [ ] Users could save their favourite products
