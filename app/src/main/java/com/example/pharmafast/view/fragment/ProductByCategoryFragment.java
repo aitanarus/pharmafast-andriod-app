@@ -20,7 +20,7 @@ import com.example.pharmafast.viewmodel.ProductViewModel;
 
 import java.util.List;
 
-public class ProductFragment extends Fragment {
+public class ProductByCategoryFragment extends Fragment {
     private RecyclerView productList;
     private ProductAdapter productAdapter;
     private TextView categoryTitle;
@@ -29,12 +29,12 @@ public class ProductFragment extends Fragment {
 
     private ProductViewModel viewModel;
 
-    public ProductFragment() {
+    public ProductByCategoryFragment() {
         // Required empty public constructor
     }
 
-    public static ProductFragment newInstance() {
-        ProductFragment fragment = new ProductFragment();
+    public static ProductByCategoryFragment newInstance() {
+        ProductByCategoryFragment fragment = new ProductByCategoryFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -53,7 +53,7 @@ public class ProductFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_product, container, false);
+        View view = inflater.inflate(R.layout.fragment_product_by_category, container, false);
         viewModel = new ViewModelProvider(this).get(ProductViewModel.class);
         categoryTitle=view.findViewById(R.id.categoryNameTitle);
         productList= view.findViewById(R.id.productsByCategoryRecyclerView);

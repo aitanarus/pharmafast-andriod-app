@@ -141,7 +141,9 @@
                     tools:ignore="MissingConstraints">
 
                     <AutoCompleteTextView
+                        android:id="@+id/autoCompleteQuantity"
                         android:layout_width="match_parent"
+                        android:enabled="false"
                         android:layout_height="wrap_content"
                         android:inputType="none" />
 

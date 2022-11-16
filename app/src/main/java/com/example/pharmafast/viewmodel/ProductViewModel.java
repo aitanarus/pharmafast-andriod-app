@@ -22,8 +22,8 @@ public class ProductViewModel extends AndroidViewModel {
         return productRepository.getProductsByCategory(category);
     }
 
-    public LiveData<List<Product>> getProductById(int id){
-        return productRepository.getProductById(id);
+    public LiveData<Product> getProductByName(String name){
+        return productRepository.getProductByName(name);
     }
 
 

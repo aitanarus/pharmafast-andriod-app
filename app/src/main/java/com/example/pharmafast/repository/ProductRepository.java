@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -26,11 +27,13 @@ public class ProductRepository {
 
     private MutableLiveData<List<Product>> productsByCategory;
     private MutableLiveData<List<Product>> productsPopular;
+    private MutableLiveData<Product> productDetails;
 
     private ProductRepository(){
         ref = database.getReference("products");
         productsByCategory = new MutableLiveData<>();
         productsPopular = new MutableLiveData<>();
+        productDetails = new MutableLiveData<>();
     }
 
     public static synchronized ProductRepository getInstance(Application app) {
@@ -44,7 +47,7 @@ public class ProductRepository {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                List<Product> products = new ArrayList<>();
+                List<Product> productsResult = new ArrayList<>();
                 try {
                     Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
                     DataSnapshot subSnapshot;
@@ -52,13 +55,13 @@ public class ProductRepository {
                         //Improve this? Fetch from database using category directly?
                         subSnapshot = iterator.next();
                         Product value = subSnapshot.getValue(Product.class);
-                        if (value.getCategoryTitle().equals(category))
-                            products.add(subSnapshot.getValue(Product.class));
+                        if (value.getCategoryTitle().equals(category) && value.getQuantity() > 0)
+                            productsResult.add(subSnapshot.getValue(Product.class));
                     }
                 } catch (Exception e){
                     Log.e("Firebase error", e.getMessage());
                 }
-                productsByCategory.setValue(products);
+                productsByCategory.setValue(productsResult);
             }
 
             @Override
@@ -70,7 +73,25 @@ public class ProductRepository {
         return productsByCategory;
     }
 
-    public LiveData<List<Product>> getProductById(int id){
-        return null;
+    public LiveData<Product> getProductByName(String name){
+        Query query = ref.child("products").orderByChild("title").equalTo(name);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot result : dataSnapshot.getChildren()) {
+                        productDetails.setValue(result.getValue(Product.class));
+                        System.out.println(productDetails.getValue().getDescription());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        productDetails.setValue(new Product(1, "Mask", "https://images.ctfassets.net/xuuihvmvy6c9/j6xzqE7F99rN7JrnX1RrK/7898f21341a23b4b1fd0535fa3afd6a3/Web_1920________25.png", "Some mask description", 23.99, "Covid Essentials", 10));
+        return productDetails;
     }
 }

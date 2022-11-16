@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pharmafast.R;
 import com.example.pharmafast.model.Category;
-import com.example.pharmafast.view.fragment.ProductFragment;
+import com.example.pharmafast.view.fragment.ProductByCategoryFragment;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
@@ -51,12 +51,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProductFragment productFragment = new ProductFragment();
+                ProductByCategoryFragment productByCategoryFragment = new ProductByCategoryFragment();
                 FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_main, productFragment).commit();
+                        .replace(R.id.fragment_container_main, productByCategoryFragment).commit();
                 bundle.putString("CATEGORY NAME", (String) holder.categoryTitle.getText());
-                productFragment.setArguments(bundle);
+                productByCategoryFragment.setArguments(bundle);
             }
         });
     }
