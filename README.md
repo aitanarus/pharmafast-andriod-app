@@ -17,11 +17,12 @@
 *Should Have*
 - [ ] Users should edit their profile information
 - [ ] Users  should see past purchases
-- [ ] Users should filter products 
+- [ ] Users should receive a message when they leave products in the shopping cart
 
 *Could Have*
 - [ ] Users could save their favourite products
 - [ ] Users could set recurrent purchases
+- [ ] Users should filter products 
 
 *Won't Have*
 - Users won't be able to do real payments
