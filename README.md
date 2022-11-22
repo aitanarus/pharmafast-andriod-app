@@ -11,8 +11,8 @@
 - [X] Users must login
 - [X] Users must see available products by categories
 - [ ] Users must see products by popularity
-- [ ] Users must see product details
-- [ ] Users must add products to a shopping cart
+- [X] Users must see product details
+- [X] Users must add products to a shopping cart
 
 *Should Have*
 - [ ] Users should edit their profile information
