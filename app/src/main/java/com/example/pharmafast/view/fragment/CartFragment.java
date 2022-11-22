@@ -1,30 +1,34 @@
 package com.example.pharmafast.view.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pharmafast.R;
-import com.example.pharmafast.view.adapter.CartAdapter;
 import com.example.pharmafast.model.Product;
+import com.example.pharmafast.view.adapter.CartAdapter;
+import com.example.pharmafast.viewmodel.CartViewModel;
 
-import java.util.ArrayList;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CartFragment extends Fragment {
     private RecyclerView productList;
     private CartAdapter cartAdapter;
+    private LiveData<List<Product>> cartProducts;
+    private TextView cartTotalItems;
+    private TextView cartTotalPrice;
 
+    private CartViewModel viewModel;
 
     public CartFragment() {
         // Required empty public constructor
@@ -48,7 +52,11 @@ public class CartFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
+        viewModel = new ViewModelProvider(this).get(CartViewModel.class);
+        cartProducts = new MutableLiveData<>();
         productList = view.findViewById(R.id.cartRecyclerView);
+        cartTotalItems = view.findViewById(R.id.itemsTotalCart);
+        cartTotalPrice = view.findViewById(R.id.priceTotalCart);
         recyclerViewProductList();
         return view;
     }
@@ -57,13 +65,16 @@ public class CartFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         productList.hasFixedSize();
         productList.setLayoutManager(linearLayoutManager);
-        ArrayList<Product> products = new ArrayList<>();
-        products.add(new Product(1, "Mask", "https://images.ctfassets.net/xuuihvmvy6c9/j6xzqE7F99rN7JrnX1RrK/7898f21341a23b4b1fd0535fa3afd6a3/Web_1920________25.png", "Some mask description", 23.99, "Covid Essentials", 21));
-        products.add(new Product(2, "Vitamins", "https://pngimg.com/uploads/vitamins/vitamins_PNG75.png", "Some vitamins", 13.59, "Personal Care", 23));
-        products.add(new Product(3, "Eye Mascara", "https://www.pngall.com/wp-content/uploads/12/Makeup-PNG-Image-HD.png", "Some eye mascara", 19.99, "Beauty", 65));
-        products.add(new Product(4, "Nivea Cream", "https://images-us.nivea.com/-/media/local/gb/advice/vitamins-for-skin/rich-nourishing-body-lotion.png", "Some cream", 4.99, "Skin Care", 23));
-        products.add(new Product(5, "Protein powder", "https://www.bodylab.dk/images/products/whey-100-1kg-3x-2019.png", "Some proteins", 59.99, "Fitness", 23));
-        cartAdapter = new CartAdapter(products);
-        productList.setAdapter(cartAdapter);
+        cartProducts = viewModel.getCartProducts();
+
+        viewModel.getCartProducts().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
+            @Override
+            public void onChanged(List<Product> products) {
+                cartAdapter = new CartAdapter(products);
+                productList.setAdapter(cartAdapter);
+                cartTotalItems.setText(Integer.toString(cartAdapter.getItemsTotalCart()));
+                cartTotalPrice.setText(Double.toString(cartAdapter.getPriceTotalCart()));
+            }
+        });
     }
 }

@@ -3,10 +3,13 @@ package com.example.pharmafast.repository;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.pharmafast.model.Product;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +31,7 @@ public class ProductRepository {
     private MutableLiveData<List<Product>> productsByCategory;
     private MutableLiveData<List<Product>> productsPopular;
     private MutableLiveData<Product> productDetails;
+
 
     private ProductRepository(){
         ref = database.getReference("products");
@@ -74,23 +78,22 @@ public class ProductRepository {
     }
 
     public LiveData<Product> getProductByName(String name){
-        Query query = ref.child("products").orderByChild("title").equalTo(name);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        Query queryByName = ref.orderByChild("title").equalTo(name);
+        queryByName.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot result : dataSnapshot.getChildren()) {
-                        productDetails.setValue(result.getValue(Product.class));
-                        System.out.println(productDetails.getValue().getDescription());
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DataSnapshot ds : task.getResult().getChildren()) {
+                        Product product = ds.getValue(Product.class);
+                        System.out.println("Repo: " + product.toString());
+                        productDetails.setValue(product);
                     }
+                } else {
+                    Log.d("Firebase error", task.getException().getMessage());
                 }
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
         });
+        System.out.println("HI");
         productDetails.setValue(new Product(1, "Mask", "https://images.ctfassets.net/xuuihvmvy6c9/j6xzqE7F99rN7JrnX1RrK/7898f21341a23b4b1fd0535fa3afd6a3/Web_1920________25.png", "Some mask description", 23.99, "Covid Essentials", 10));
         return productDetails;
     }

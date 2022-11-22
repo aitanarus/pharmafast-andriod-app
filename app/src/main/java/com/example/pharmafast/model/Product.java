@@ -12,6 +12,17 @@ public class Product {
 
     public Product(){}
 
+    public Product(int productId, String title, String pic, String description, Double price, String categoryTitle, int quantity, int numberInCart) {
+        this.productId = productId;
+        this.title = title;
+        this.pic = pic;
+        this.description = description;
+        this.price = price;
+        this.categoryTitle = categoryTitle;
+        this.quantity = quantity;
+        this.numberInCart = numberInCart;
+    }
+
     public Product(int productId, String title, String pic, String description, Double price, String categoryTitle, int quantity) {
         this.productId = productId;
         this.title = title;
@@ -95,4 +106,19 @@ public class Product {
     public void setNumberInCart(int numberInCart) {
         this.numberInCart = numberInCart;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", title='" + title + '\'' +
+                ", pic='" + pic + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", categoryTitle='" + categoryTitle + '\'' +
+                ", quantity=" + quantity +
+                ", numberInCart=" + numberInCart +
+                '}';
+    }
+
 }

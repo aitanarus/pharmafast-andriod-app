@@ -161,6 +161,17 @@
                     app:layout_constraintStart_toStartOf="@+id/button"
                     app:layout_constraintTop_toBottomOf="@+id/button"></Button>
 
+                <TextView
+                    android:id="@+id/productDetailId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toEndOf="@+id/productDetailTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/productDetailPrice" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
         </ScrollView>

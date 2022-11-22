@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/productCartTitle">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/addProductCartBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="7dp"
@@ -51,7 +51,7 @@
                 android:text="+" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/productCartQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -59,7 +59,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/deleteProductCartBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
@@ -87,7 +87,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/productCartTotalPrice"
+                android:id="@+id/productCartPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"

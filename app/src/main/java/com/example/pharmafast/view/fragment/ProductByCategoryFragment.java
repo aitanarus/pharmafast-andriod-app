@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-import androidx.lifecycle.Observer;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +27,9 @@ public class ProductByCategoryFragment extends Fragment {
     private ProductAdapter productAdapter;
     private TextView categoryTitle;
     private String categoryTitleString;
-    private MutableLiveData<List<Product>> products;
+    private Button addProductCartButton;
+    private Button deleteProductCartButton;
+    private LiveData<List<Product>> products;
 
     private ProductViewModel viewModel;
 
@@ -55,6 +59,7 @@ public class ProductByCategoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_by_category, container, false);
         viewModel = new ViewModelProvider(this).get(ProductViewModel.class);
+        products = new MutableLiveData<>();
         categoryTitle=view.findViewById(R.id.categoryNameTitle);
         productList= view.findViewById(R.id.productsByCategoryRecyclerView);
         categoryTitle.setText(categoryTitleString);
@@ -66,6 +71,7 @@ public class ProductByCategoryFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         productList.hasFixedSize();
         productList.setLayoutManager(gridLayoutManager);
+        products = viewModel.getProductsByCategory(categoryTitleString);
 
         viewModel.getProductsByCategory(categoryTitleString).observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
             @Override
