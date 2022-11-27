@@ -28,5 +28,4 @@ public class CartViewModel extends AndroidViewModel {
     public LiveData<List<Product>> getCartProducts() {
         return cartRepository.getCartProducts();
     }
-
 }

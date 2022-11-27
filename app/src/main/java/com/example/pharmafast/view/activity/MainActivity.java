@@ -50,12 +50,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cart.setOnClickListener(v -> {
-            System.out.println("HI i clicked cart");
             CartFragment cartFragment = new CartFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_container_main, cartFragment).commit();
         });
     }
-
 }

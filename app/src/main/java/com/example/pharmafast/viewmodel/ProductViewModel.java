@@ -25,6 +25,4 @@ public class ProductViewModel extends AndroidViewModel {
     public LiveData<Product> getProductByName(String name){
         return productRepository.getProductByName(name);
     }
-
-
 }
