@@ -21,8 +21,6 @@
 
 *Could Have*
 - [ ] Users could save their favourite products
-- [ ] Users could set recurrent purchases
-- [ ] Users should filter products 
 
 *Won't Have*
 - Users won't be able to do real payments
