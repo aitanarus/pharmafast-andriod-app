@@ -29,8 +29,27 @@ public class CartDAO {
     private CartDAO(){
         ref = database.getReference("cart");
         productsCart = new MutableLiveData<>();
+    }
 
-        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("cart").addValueEventListener(new ValueEventListener() {
+    public static synchronized CartDAO getInstance() {
+        if(instance == null)
+            instance = new CartDAO();
+        return instance;
+    }
+
+    public void addProductToCart(Product product){
+        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(product.getProductId())).setValue(product);
+    }
+
+    public void deleteProductFromCart(Product product){
+        if (product.getNumberInCart()>0)
+            ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(product.getProductId())).setValue(product);
+        else
+            ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(String.valueOf(product.getProductId())).removeValue();
+    }
+
+    public LiveData<List<Product>> getCartProducts() {
+        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Product> currentCartSneakers = new ArrayList<>();
@@ -52,26 +71,6 @@ public class CartDAO {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-    }
-
-    public static synchronized CartDAO getInstance() {
-        if(instance == null)
-            instance = new CartDAO();
-        return instance;
-    }
-
-    public void addProductToCart(Product product){
-        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("cart").child(String.valueOf(product.getProductId())).setValue(product);
-    }
-
-    public void deleteProductFromCart(Product product){
-        if (product.getNumberInCart()>0)
-            ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("cart").child(String.valueOf(product.getProductId())).setValue(product);
-        else
-            ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("cart").child(String.valueOf(product.getProductId())).removeValue();
-    }
-
-    public LiveData<List<Product>> getCartProducts() {
         return productsCart;
     }
 }

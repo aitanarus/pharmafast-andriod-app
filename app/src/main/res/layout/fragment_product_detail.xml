@@ -21,160 +21,156 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="646dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/productDetailPic"
-                    android:layout_width="0dp"
-                    android:layout_height="300dp"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="646dp">
 
-                <Button
-                    android:id="@+id/backButton"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_baseline_arrow_back_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    <ImageView
+                        android:id="@+id/productDetailPic"
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
 
-                <TextView
-                    android:id="@+id/priceCurrency"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:text="DDK"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/productDetailPic" />
+                    <Button
+                        android:id="@+id/backButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ic_baseline_arrow_back_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
 
-                <TextView
-                    android:id="@+id/productDetailPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:text="PRICE"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/priceCurrency"
-                    app:layout_constraintStart_toEndOf="@+id/priceCurrency"
-                    app:layout_constraintTop_toTopOf="@+id/priceCurrency" />
-
-                <TextView
-                    android:id="@+id/productDetailTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Title"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/priceCurrency" />
-
-                <TextView
-                    android:id="@+id/productDetailDescription"
-                    android:layout_width="303dp"
-                    android:layout_height="95dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="32dp"
-                    android:text="Etiam non porta dui. Maecenas bibendum at augue eget molestie. In hac habitasse platea dictumst. Vestibulum efficitur tempus efficitur. Aliquam erat volutpat. Suspendisse potenti. Suspendisse et auctor elit. "
-                    app:layout_constrainedWidth="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/productDetailTitle"
-                    app:layout_constraintWidth_percent="0.6" />
-
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="159dp"
-                    android:layout_height="44dp"
-                    android:layout_marginStart="32dp"
-                    android:gravity="center"
-                    app:backgroundTint="@color/white"
-                    app:icon="@drawable/ic_favorite_border_24"
-                    app:iconGravity="textStart"
-                    app:iconTint="@color/grey_dark"
-                    app:layout_constraintEnd_toStartOf="@+id/textInputLayout2"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/productDetailDescription" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout2"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="144dp"
-                    android:layout_height="43dp"
-                    android:layout_marginEnd="32dp"
-                    android:hint="Quantity"
-                    app:layout_constraintBottom_toBottomOf="@+id/button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/button"
-                    app:layout_constraintTop_toBottomOf="@+id/productDetailDescription"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:ignore="MissingConstraints">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/autoCompleteQuantity"
-                        android:layout_width="match_parent"
-                        android:enabled="false"
+                    <TextView
+                        android:id="@+id/priceCurrency"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="none" />
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:text="DDK"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/productDetailPic" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/productDetailPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="PRICE"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/priceCurrency"
+                        app:layout_constraintStart_toEndOf="@+id/priceCurrency"
+                        app:layout_constraintTop_toTopOf="@+id/priceCurrency" />
 
-                <Button
-                    android:id="@+id/addProductBtn"
-                    android:layout_width="302dp"
-                    android:layout_height="52dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/add"
-                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/button"
-                    app:layout_constraintTop_toBottomOf="@+id/button"></Button>
+                    <TextView
+                        android:id="@+id/productDetailTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Title"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/priceCurrency" />
 
-                <TextView
-                    android:id="@+id/productDetailId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:text="TextView"
-                    android:textStyle="italic"
-                    app:layout_constraintStart_toEndOf="@+id/productDetailTitle"
-                    app:layout_constraintTop_toBottomOf="@+id/productDetailPrice" />
+                    <TextView
+                        android:id="@+id/productDetailDescription"
+                        android:layout_width="303dp"
+                        android:layout_height="95dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="32dp"
+                        android:text="Etiam non porta dui. Maecenas bibendum at augue eget molestie. In hac habitasse platea dictumst. Vestibulum efficitur tempus efficitur. Aliquam erat volutpat. Suspendisse potenti. Suspendisse et auctor elit. "
+                        app:layout_constrainedWidth="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/productDetailTitle"
+                        app:layout_constraintWidth_percent="0.6" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/favouriteBtn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="159dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="32dp"
+                        android:gravity="center"
+                        app:iconGravity="textStart"
+                        app:layout_constraintEnd_toStartOf="@+id/textInputLayout2"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/productDetailDescription" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout2"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="144dp"
+                        android:layout_height="43dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="Quantity"
+                        app:layout_constraintBottom_toBottomOf="@+id/favouriteBtn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/favouriteBtn"
+                        app:layout_constraintTop_toBottomOf="@+id/productDetailDescription"
+                        app:layout_constraintVertical_bias="1.0"
+                        tools:ignore="MissingConstraints">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoCompleteQuantity"
+                            android:layout_width="match_parent"
+                            android:enabled="false"
+                            android:layout_height="wrap_content"
+                            android:inputType="none" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/addProductBtn"
+                        android:layout_width="302dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/add"
+                        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/favouriteBtn"
+                        app:layout_constraintTop_toBottomOf="@+id/favouriteBtn"></Button>
+
+                    <TextView
+                        android:id="@+id/productDetailId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="TextView"
+                        android:textStyle="italic"
+                        app:layout_constraintStart_toEndOf="@+id/productDetailTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/productDetailPrice" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
-

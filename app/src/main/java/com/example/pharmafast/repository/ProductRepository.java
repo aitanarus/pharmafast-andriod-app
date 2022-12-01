@@ -30,4 +30,8 @@ public class ProductRepository {
     public LiveData<Product> getProductByName(String name){
         return productDAO.getProductByName(name);
     }
+
+    public void setFavourite(Product product){
+        productDAO.setFavourite(product);
+    }
 }

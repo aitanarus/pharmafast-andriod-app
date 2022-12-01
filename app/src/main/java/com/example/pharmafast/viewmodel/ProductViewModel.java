@@ -25,4 +25,8 @@ public class ProductViewModel extends AndroidViewModel {
     public LiveData<Product> getProductByName(String name){
         return productRepository.getProductByName(name);
     }
+
+    public void setFavourite(Product product){
+        productRepository.setFavourite(product);
+    }
 }
