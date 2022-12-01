@@ -15,12 +15,12 @@
 - [X] Users must add products to a shopping cart
 
 *Should Have*
-- [ ] Users should edit their profile information
+- [-] Users should edit their profile information
 - [ ] Users  should see past purchases
 - [ ] Users should receive a message when they leave products in the shopping cart
 
 *Could Have*
-- [ ] Users could save their favourite products
+- [-] Users could save their favourite products
 
 *Won't Have*
 - Users won't be able to do real payments
