@@ -1,6 +1,5 @@
 package com.example.pharmafast.dao;
 
-import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -39,7 +38,7 @@ public class ProductDAO {
         productDetails = new MutableLiveData<>();
     }
 
-    public static synchronized ProductDAO getInstance(Application app) {
+    public static synchronized ProductDAO getInstance() {
         if(instance == null)
             instance = new ProductDAO();
         return instance;
