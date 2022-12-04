@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,9 +25,9 @@ public class AccountActivity extends AppCompatActivity {
     private EditText userEmail;
     private EditText userPassword;
     private Button editUserButton;
+    private TextView userEmailText;
     private LoginViewModel loginViewModel;
     private ProfileViewModel profileViewModel;
-
     private BottomNavigationView bottomNavigationView;
     private FloatingActionButton cartButton;
 
@@ -50,12 +51,10 @@ public class AccountActivity extends AppCompatActivity {
         });
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         cartButton = findViewById(R.id.Cart);
+        userEmailText = findViewById(R.id.userEmail);
+        userEmailText.setText(profileViewModel.getUserEmail());
         bottomNavigationView.setBackground(null);
         onOptionsItemSelected(bottomNavigationView, cartButton);
-
-        userEmail.setHint(profileViewModel.getUserEmail());
-        userPassword.setHint(profileViewModel.getUserPassword());
-
     }
 
     private void checkIfSignedIn() {

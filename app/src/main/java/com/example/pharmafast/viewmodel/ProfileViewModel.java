@@ -18,10 +18,6 @@ public class ProfileViewModel extends AndroidViewModel {
         return userRepository.getUserEmail();
     }
 
-    public String getUserPassword(){
-        return userRepository.getUserPassword();
-    }
-
     public String updateCurrentUser(String email, String password) {
        return userRepository.updateCurrentUser(email, password);
     }

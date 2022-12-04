@@ -15,8 +15,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -32,14 +34,17 @@ public class ProductDAO {
     private boolean isFav;
 
     private ProductDAO(){
-        /*
+        ref = database.getReference("products");
         Map<String, Product> products = new HashMap<>();
-        products.put("1", new Product(1, "Mask", "https://images.ctfassets.net/xuuihvmvy6c9/j6xzqE7F99rN7JrnX1RrK/7898f21341a23b4b1fd0535fa3afd6a3/Web_1920________25.png", "Some mask description", 23.99, "Covid Essentials", false,  1));
+        products.put("1", new Product(1, "Mask", "https://images.ctfassets.net/xuuihvmvy6c9/j6xzqE7F99rN7JrnX1RrK/7898f21341a23b4b1fd0535fa3afd6a3/Web_1920________25.png", "Some mask description", 23.99, "Covid", false,  1));
         products.put("2", new Product(2, "Vitamins","https://pngimg.com/uploads/vitamins/vitamins_PNG75.png", "Some vitamins", 13.59, "Personal Care", false, 10));
         products.put("3", new Product(3, "Eye Mascara", "https://www.pngall.com/wp-content/uploads/12/Makeup-PNG-Image-HD.png", "Some eye mascara", 19.99, "Beauty", false, 2));
         products.put("4", new Product(4, "Nivea Cream","https://images-us.nivea.com/-/media/local/gb/advice/vitamins-for-skin/rich-nourishing-body-lotion.png", "Some cream", 4.99, "Skin Care", false, 20));
         products.put("5", new Product(5, "Protein powder","https://www.bodylab.dk/images/products/whey-100-1kg-3x-2019.png", "Some proteins", 59.99, "Fitness", false, 23));
-        ref.setValue(products);*/
+        products.put("6", new Product(6, "Hand Sanitizer", "https://www.pngall.com/wp-content/uploads/5/Hand-Sanitizer-PNG-Free-Download.png", "Some hand sanitizer", 14.50, "Covid", false, 10));
+        products.put("7", new Product(7, "Sleeping pills", "https://cdn.shopify.com/s/files/1/0310/5472/5260/products/SleepWell30-min_4bab6173-e69c-4386-b73d-46340e8da87c.png?v=1636191829", "Some sleeping pills", 35.99, "Personal Care", false, 16));
+        products.put("8", new Product(8, "Nitrile Gloves", "https://images.squarespace-cdn.com/content/v1/613d1cb0cb255d7b04a00cec/1632190475623-BZQT082XN9S0XC5YBATL/PNG+Front+Nitrile+Gloves.png?format=1500w", "Some gloves", 15.99, "Covid", false, 5));
+        ref.setValue(products);
 
         productsByCategory = new MutableLiveData<>();
         productsPopular = new MutableLiveData<>();

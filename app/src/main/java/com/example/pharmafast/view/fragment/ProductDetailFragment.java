@@ -5,6 +5,7 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -26,6 +27,7 @@ import com.example.pharmafast.model.Product;
 import com.example.pharmafast.viewmodel.CartViewModel;
 import com.example.pharmafast.viewmodel.ProductViewModel;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class ProductDetailFragment extends Fragment {
     private Button backButton;
@@ -37,6 +39,7 @@ public class ProductDetailFragment extends Fragment {
     private TextView productDetailId;
     private ImageView productDetailPic;
     private AutoCompleteTextView autoCompleteTextView;
+    private TextInputLayout textInputLayout;
     private String productDetailTitleString;
 
     private ProgressBar TempBar;
@@ -80,6 +83,7 @@ public class ProductDetailFragment extends Fragment {
         productDetailPrice = view.findViewById(R.id.productDetailPrice);
         productDetailId = view.findViewById(R.id.productDetailId);
         autoCompleteTextView = view.findViewById(R.id.autoCompleteQuantity);
+        textInputLayout = view.findViewById(R.id.textInputLayout2);
         productDetailPic=view.findViewById(R.id.productDetailPic);
         addProductButton=view.findViewById(R.id.addProductBtn);
         backButton=view.findViewById(R.id.backButton);
@@ -117,6 +121,15 @@ public class ProductDetailFragment extends Fragment {
             }
         });
 
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                selectedProduct.getValue().setNumberInCart(Integer.parseInt(String.valueOf(autoCompleteTextView.getText())));
+            }
+
+        });
+
         getProductByName();
         return view;
     }
@@ -130,7 +143,6 @@ public class ProductDetailFragment extends Fragment {
                 productDetailDescription.setText(selectedProduct.getValue().getDescription());
                 productDetailPrice.setText(String.valueOf(selectedProduct.getValue().getPrice()));
                 productDetailId.setText(String.valueOf("#"+selectedProduct.getValue().getProductId()));
-
                 favouriteButton.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.ic_favorite_border_24));
                 favouriteButton.setIconTintResource(R.color.red);
 
@@ -150,11 +162,11 @@ public class ProductDetailFragment extends Fragment {
                 Integer[] quantity = new Integer[selectedProduct.getValue().getQuantity()];
                 for(int i = 0; i < selectedProduct.getValue().getQuantity(); i++){
                     quantity[i] = i;
+                    quantity[i]++;
                 }
                 ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter(getContext(), R.layout.list_item, quantity);
 
                 // default value
-                 autoCompleteTextView.setText(arrayAdapter.getItem(0).toString(), false);
                  autoCompleteTextView.setAdapter(arrayAdapter);
 
                 // product pic

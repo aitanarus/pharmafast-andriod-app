@@ -36,10 +36,6 @@ public class UserRepository {
         return FirebaseAuth.getInstance().getCurrentUser().getEmail();
     }
 
-    public String getUserPassword(){
-        return FirebaseAuth.getInstance().getCurrentUser().getEmail();
-    }
-
     public String updateCurrentUser(String email, String password){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String[] msg = new String[1];

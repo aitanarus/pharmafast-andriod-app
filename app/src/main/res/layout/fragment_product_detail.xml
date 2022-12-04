@@ -34,7 +34,7 @@
                         android:id="@+id/productDetailPic"
                         android:layout_width="0dp"
                         android:layout_height="300dp"
-                        android:src="@drawable/ic_launcher_background"
+                        android:src="@drawable/default_product_detail"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
-                        android:text="PRICE"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -86,7 +85,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="8dp"
-                        android:text="Title"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +99,6 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="32dp"
-                        android:text="Etiam non porta dui. Maecenas bibendum at augue eget molestie. In hac habitasse platea dictumst. Vestibulum efficitur tempus efficitur. Aliquam erat volutpat. Suspendisse potenti. Suspendisse et auctor elit. "
                         app:layout_constrainedWidth="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -123,6 +120,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/productDetailDescription" />
 
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout2"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -140,9 +138,8 @@
                         <AutoCompleteTextView
                             android:id="@+id/autoCompleteQuantity"
                             android:layout_width="match_parent"
-                            android:enabled="false"
                             android:layout_height="wrap_content"
-                            android:inputType="none" />
+                            android:inputType="none"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -164,7 +161,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="TextView"
                         android:textStyle="italic"
                         app:layout_constraintStart_toEndOf="@+id/productDetailTitle"
                         app:layout_constraintTop_toBottomOf="@+id/productDetailPrice" />
